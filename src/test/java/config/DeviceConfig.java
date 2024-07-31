@@ -2,8 +2,10 @@ package config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
-        "classpath:${env}.properties"
+        "classpath:${env}.properties",
+        "classpath:pixel3V9.properties"
 })
 public interface DeviceConfig extends Config {
     @Key("browserstack.user")

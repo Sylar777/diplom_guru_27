@@ -12,7 +12,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class SearchFilmByNameApiTest extends TestBase {
     private final static int filmId = 271748;
 
-    @ParameterizedTest(name = "Check searching with Value = {0}")
+    @ParameterizedTest(name = "Check searching with page={0}, limit={1}, and filmName={2}")
     @CsvSource(value = {
             "1,3,Герои",
             "1,10,Heroes"
@@ -22,7 +22,7 @@ public class SearchFilmByNameApiTest extends TestBase {
             return getFilmByNameViaApi(page, limit, filmName);
         });
 
-        step("Check that the first film is " + "'" + filmName + "'", () -> {
+        step("Check that the first film is has Id = " + filmId, () -> {
             assertThat(response.getDocs().get(0).getId())
                     .as("Film Id")
                     .isEqualTo(filmId);

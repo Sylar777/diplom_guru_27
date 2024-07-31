@@ -4,8 +4,6 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import models.GetFilmsResponse;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 import static io.restassured.RestAssured.given;
 import static spec.GeneralSpec.requestSpec;
@@ -20,7 +18,6 @@ public class GetFilmsApi {
                 .header("accept", "application/json")
                 .header("X-API-KEY", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4")
                 .get("/movie/search?page={page}&limit={limit}&query={query}", page, limit, filmName)
-//                        URLEncoder.encode(filmName, StandardCharsets.UTF_8))
                 .then()
                 .spec(responseSpec)
                 .statusCode(200)

@@ -11,7 +11,7 @@ import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
 @Tag("Mobile")
-public class SearchFilmTest extends TestBase {
+public class SearchFilmByNameMobileTest extends TestBase {
      @Test
      void searchFilmTest() {
          step("Skip title pages", () -> {

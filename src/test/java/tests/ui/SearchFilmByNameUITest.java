@@ -9,11 +9,11 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("UI")
-public class SimpleSearchTest extends TestBase {
+public class SearchFilmByNameUITest extends TestBase {
     public final static String filmNameInRussian = "Герои";
     public final static String filmNameInEnglish = "Heroes";
 
-    @ParameterizedTest(name = "Check searching with Value = {0}")
+    @ParameterizedTest(name = "Check film searching with Name = {0}")
     @ValueSource(strings = {filmNameInEnglish, filmNameInRussian})
     void searchArticleInDifferentLanguagesTest(String filmName) {
         step("Search article " + "'"+ filmName + "'", () -> {
