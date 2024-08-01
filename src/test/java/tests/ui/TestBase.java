@@ -24,8 +24,9 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.kinopoisk.ru");
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "114.0");
+        Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
         Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 10000;
         Configuration.remote = System.getProperty("Wdhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
