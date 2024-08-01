@@ -41,6 +41,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         caps.setCapability("project", "Diplom_27_Daniil_Sosnovskiy");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "KinopoiskDevicesTests");
+        caps.setCapability("browserstack.idleTimeout", 300);
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
