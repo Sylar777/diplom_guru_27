@@ -16,12 +16,12 @@ public class SearchFilmByNameUITest extends TestBase {
     @ParameterizedTest(name = "Check film searching with Name = {0}")
     @ValueSource(strings = {filmNameInEnglish, filmNameInRussian})
     void searchArticleInDifferentLanguagesTest(String filmName) {
-        step("Search article " + "'"+ filmName + "'", () -> {
+        step("Search article " + "'" + filmName + "'", () -> {
             mainPage.searchInput.setValue(filmName);
             mainPage.suggestedArticlesList.shouldHave(sizeGreaterThan(0));
         });
 
-        step("Check that the first article is " + "'"+ filmNameInRussian + "'", () -> {
+        step("Check that the first article is " + "'" + filmNameInRussian + "'", () -> {
             assertThat(mainPage.getArticleTitle(mainPage.suggestedArticlesList.first()))
                     .isEqualToIgnoringCase(filmNameInRussian);
         });
