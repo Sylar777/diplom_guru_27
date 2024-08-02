@@ -11,14 +11,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackDriver implements WebDriverProvider {
-    private final BrowserstackConfig BrowserstackConfig;
+    private final BrowserstackConfig browserstackConfig;
 
     public BrowserstackDriver() {
-        this.BrowserstackConfig = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
+        this.browserstackConfig = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
     }
 
     public BrowserstackConfig getBrowserstackConfig() {
-        return BrowserstackConfig;
+        return browserstackConfig;
     }
 
     @Nonnull
@@ -27,15 +27,15 @@ public class BrowserstackDriver implements WebDriverProvider {
         MutableCapabilities caps = new MutableCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", BrowserstackConfig.user());
-        caps.setCapability("browserstack.key", BrowserstackConfig.key());
+        caps.setCapability("browserstack.user", browserstackConfig.user());
+        caps.setCapability("browserstack.key", browserstackConfig.key());
 
         // Set URL of the application under test
-        caps.setCapability("apps", BrowserstackConfig.app());
+        caps.setCapability("app", browserstackConfig.app());
 
         // Specify device and os_version for testing
-        caps.setCapability("device", BrowserstackConfig.device());
-        caps.setCapability("os_version", BrowserstackConfig.osVersion());
+        caps.setCapability("device", browserstackConfig.device());
+        caps.setCapability("os_version", browserstackConfig.osVersion());
 
         // Set other BrowserStack capabilities
         caps.setCapability("project", "Diplom_27_Daniil_Sosnovskiy");
@@ -47,7 +47,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         // and desired capabilities defined above
         try {
             return new RemoteWebDriver(
-                    new URL(BrowserstackConfig.url()), caps);
+                    new URL(browserstackConfig.url()), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

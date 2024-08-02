@@ -18,7 +18,7 @@ import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class EmulateMobileDriver implements WebDriverProvider {
-    private static final EmulateMobileConfig config =
+    private static final EmulateMobileConfig emulateMobileConfig =
             ConfigFactory.create(
                     EmulateMobileConfig.class,
                     System.getProperties()
@@ -35,18 +35,18 @@ public class EmulateMobileDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
-                .setPlatformVersion(config.platformVersion())
-                .setDeviceName(config.deviceName())
+                .setPlatformVersion(emulateMobileConfig.platformVersion())
+                .setDeviceName(emulateMobileConfig.deviceName())
                 .setApp(getAppPath())
-                .setAppPackage(config.appPackage())
-                .setAppActivity(config.appActivity());
+                .setAppPackage(emulateMobileConfig.appPackage())
+                .setAppActivity(emulateMobileConfig.appActivity());
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(config.mobileUrl());
+            return new URL(emulateMobileConfig.mobileUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
