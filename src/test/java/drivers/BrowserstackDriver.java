@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.DeviceConfig;
+import config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,14 +11,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackDriver implements WebDriverProvider {
-    private final DeviceConfig deviceConfig;
+    private final BrowserstackConfig BrowserstackConfig;
 
     public BrowserstackDriver() {
-        this.deviceConfig = ConfigFactory.create(DeviceConfig.class, System.getProperties());
+        this.BrowserstackConfig = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
     }
 
-    public DeviceConfig getDeviceConfig() {
-        return deviceConfig;
+    public BrowserstackConfig getBrowserstackConfig() {
+        return BrowserstackConfig;
     }
 
     @Nonnull
@@ -27,15 +27,15 @@ public class BrowserstackDriver implements WebDriverProvider {
         MutableCapabilities caps = new MutableCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", deviceConfig.user());
-        caps.setCapability("browserstack.key", deviceConfig.key());
+        caps.setCapability("browserstack.user", BrowserstackConfig.user());
+        caps.setCapability("browserstack.key", BrowserstackConfig.key());
 
         // Set URL of the application under test
-        caps.setCapability("app", deviceConfig.app());
+        caps.setCapability("apps", BrowserstackConfig.app());
 
         // Specify device and os_version for testing
-        caps.setCapability("device", deviceConfig.device());
-        caps.setCapability("os_version", deviceConfig.osVersion());
+        caps.setCapability("device", BrowserstackConfig.device());
+        caps.setCapability("os_version", BrowserstackConfig.osVersion());
 
         // Set other BrowserStack capabilities
         caps.setCapability("project", "Diplom_27_Daniil_Sosnovskiy");
@@ -47,7 +47,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         // and desired capabilities defined above
         try {
             return new RemoteWebDriver(
-                    new URL(deviceConfig.url()), caps);
+                    new URL(BrowserstackConfig.url()), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

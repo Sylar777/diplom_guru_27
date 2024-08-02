@@ -11,7 +11,7 @@ public class Browserstack {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(driver.getDeviceConfig().user(), driver.getDeviceConfig().key())
+                .auth().basic(driver.getBrowserstackConfig().user(), driver.getBrowserstackConfig().key())
                 .get(url)
                 .then()
                 .log().all()
