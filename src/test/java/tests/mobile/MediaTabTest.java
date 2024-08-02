@@ -1,6 +1,7 @@
 package tests.mobile;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -9,6 +10,7 @@ import static io.appium.java_client.AppiumBy.className;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
+@Tag("Mobile")
 public class MediaTabTest extends TestBase {
     @Test
     void inCinemaLoadingTest() {
