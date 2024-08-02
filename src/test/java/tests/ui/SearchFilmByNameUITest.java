@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -12,6 +13,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class SearchFilmByNameUITest extends TestBase {
     public final static String filmNameInRussian = "Герои";
     public final static String filmNameInEnglish = "Heroes";
+
+    @Override
+    @BeforeEach
+    void setUp() {
+        super.setUp();
+        open("/");
+    }
 
     @ParameterizedTest(name = "Check film searching with Name = {0}")
     @ValueSource(strings = {filmNameInEnglish, filmNameInRussian})
