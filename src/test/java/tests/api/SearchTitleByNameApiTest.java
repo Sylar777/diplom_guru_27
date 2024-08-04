@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static helpers.GetFilmsApi.getFilmByNameViaApi;
+import static helpers.ResponseRestApi.getFilmByNameViaApi;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Tag("API")
-public class SearchFilmByNameApiTest extends TestBase {
+public class SearchTitleByNameApiTest extends TestBase {
     private final static int filmId = 271748;
 
     @ParameterizedTest(name = "Check searching with page={0}, limit={1}, and filmName={2}")
