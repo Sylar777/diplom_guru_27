@@ -4,7 +4,6 @@ import helpers.ResponseRestApi;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static helpers.ResponseRestApi.getRandomTitle;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
