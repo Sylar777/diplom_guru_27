@@ -10,8 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import javax.annotation.Nonnull;
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
@@ -59,11 +58,23 @@ public class EmulateMobileDriver implements WebDriverProvider {
 
         File app = new File(appPath);
         if (!app.exists()) {
-            try (InputStream in = new URL(appUrl).openStream()) {
-                copyInputStreamToFile(in, app);
+            System.out.println("App does not exist, attempting to download.");
+            try {
+                URL url = new URL(appUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+                try (InputStream in = connection.getInputStream()) {
+                    System.out.println("Opened URL stream successfully.");
+                    copyInputStreamToFile(in, app);
+                    System.out.println("Downloaded file successfully.");
+                }
             } catch (IOException e) {
+                System.err.println("Failed to download application: " + e.getMessage());
+                e.printStackTrace();
                 throw new AssertionError("Failed to download application", e);
             }
+        } else {
+            System.out.println("App already exists at: " + app.getAbsolutePath());
         }
         return app.getAbsolutePath();
     }
