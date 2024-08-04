@@ -44,7 +44,7 @@ public class AllureAttachment {
     }
 
     public static URL getVideoUrl() {
-        var Wdhost = System.getProperty("Wdhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        var Wdhost = System.getProperty("wdhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
         String videoUrl = Wdhost + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
