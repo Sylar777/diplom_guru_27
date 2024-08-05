@@ -8,4 +8,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RandomTitleResponse {
     private int id;
+    private String type;
 }

@@ -9,8 +9,8 @@ import static spec.GeneralSpec.requestSpec;
 import static spec.GeneralSpec.responseSpec;
 
 public class ResponseRestApi {
-    @Step("Get film by name via API")
-    public static GetTitleResponse getFilmByNameViaApi(String page, String limit, String filmName) {
+    @Step("Get Title by name via API")
+    public static GetTitleResponse getTitleByNameViaApi(String page, String limit, String filmName) {
         return given()
                 .spec(requestSpec)
                 .contentType(ContentType.JSON)
@@ -31,6 +31,20 @@ public class ResponseRestApi {
                 .header("accept", "application/json")
                 .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
                 .get("/movie/random")
+                .then()
+                .spec(responseSpec)
+                .statusCode(200)
+                .extract().as(RandomTitleResponse.class);
+    }
+
+    @Step("Get random title by Type via API")
+    public static RandomTitleResponse getRandomTitleByType(String type) {
+        return given()
+                .spec(requestSpec)
+                .contentType(ContentType.JSON)
+                .header("accept", "application/json")
+                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .get("/movie/random?type={type}", type)
                 .then()
                 .spec(responseSpec)
                 .statusCode(200)
