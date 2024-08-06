@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "${JOB_NAME}",
+    "environment": "Kinopoisk",
+    "comment": "Tests for Kinopoisk",
+    "reportLink": "${BUILD_URL}",
+    "language": "en",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "7300603680:AAHAr50GT52vN9i8_m_H78HfT7fwWN2DZkQ",
+    "chat": "-1002237077097",
+    "replyTo": ""
+  }
+}
