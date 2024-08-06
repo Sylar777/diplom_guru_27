@@ -14,6 +14,7 @@ Kinopoisk - это крупнейший российский интернет-с
 - [Интеграция с Allure Report](#интеграция-с-allure-report)
 - [Интеграция с Allure TestOps](#интеграция-с-allure-testops)
 - [Интеграция с Jira](#интеграция-с-jira)
+- [Видео примера запуска тестов в Selenoid](#Видео-примера-запуска-тестов-в-Selenoid)
 - [Видео примера запуска тестов в BrowserStack](#Видео-примера-запуска-тестов-в-BrowserStack)
 
 ## Описание
@@ -172,6 +173,13 @@ CATEGORIES - отображает распределение неудачных 
 <p dir="auto">
   <a href="images/screenshots/Jira.png">
     <img src="images/screenshots/Jira.png" style="max-width: 100%;">
+  </a>
+</p>
+
+## Видео примера запуска тестов в Selenoid
+<p dir="auto">
+  <a href="images/screenshots/Jira.png">
+    <img src="images/video/Selenoid.gif" style="max-width: 100%;">
   </a>
 </p>
 
