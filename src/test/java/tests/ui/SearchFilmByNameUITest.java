@@ -14,6 +14,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("UI")
 @Owner("Daniil Sosnovskiy")
 @Feature("Search")
+@Deprecated
 public class SearchFilmByNameUITest extends TestBase {
     public final static String filmNameInRussian = "Герои";
     public final static String filmNameInEnglish = "Heroes";

@@ -27,6 +27,7 @@ public class IndexOfSeriesTest extends TestBase {
 
     @Test
     @DisplayName("Check that countries picklist is not empty")
+    @Deprecated
     void countriesPicklistNotEmptyTest() {
         step("Explore countries picklist", () ->
                 indexOfSeriesPage.countriesPicklist.click()
