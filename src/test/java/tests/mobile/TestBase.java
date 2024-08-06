@@ -5,12 +5,11 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriver;
 import drivers.EmulateMobileDriver;
-import helpers.Attach;
+import helpers.AllureAttachment;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
     @BeforeAll
@@ -33,13 +32,11 @@ public class TestBase {
 
     @AfterEach
     void tearDown() {
-        String sessionId = Selenide.sessionId().toString();
-        System.out.println(sessionId);
+        AllureAttachment.pageSource();
+        if ("browserstack".equals(System.getProperty("env", "browserstack"))) {
+            AllureAttachment.getVideoUrl();
+        }
 
-//        Attach.screenshotAs("Last screenshot"); // todo fix
-        Attach.pageSource();
         closeWebDriver();
-
-        Attach.addVideo(sessionId);
     }
 }

@@ -1,17 +1,19 @@
 package helpers;
 
-import drivers.BrowserstackDriver;
+import config.BrowserstackConfig;
+import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
+import static spec.GeneralSpec.requestSpec;
 
 public class Browserstack {
-    BrowserstackDriver driver = new BrowserstackDriver();
+    static final BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
-    public String videoUrl(String sessionId) {
+    public static String videoUrl(String sessionId) {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
-        return given()
-                .auth().basic(driver.getBrowserstackConfig().user(), driver.getBrowserstackConfig().key())
+        return given(requestSpec)
+                .auth().basic(config.user(), config.key())
                 .get(url)
                 .then()
                 .log().all()
