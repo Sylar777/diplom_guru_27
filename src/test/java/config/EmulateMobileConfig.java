@@ -8,8 +8,12 @@ import org.aeonbits.owner.Config;
 })
 public interface EmulateMobileConfig extends Config {
     String platformVersion();
+
     String deviceName();
+
     String appPackage();
+
     String appActivity();
+
     String mobileUrl();
 }

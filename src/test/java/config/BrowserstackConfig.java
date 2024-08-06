@@ -21,6 +21,7 @@ public interface BrowserstackConfig extends Config {
     String osVersion();
 
     String app();
+
     @DefaultValue("https://hub.browserstack.com/wd/hub")
     String url();
 }

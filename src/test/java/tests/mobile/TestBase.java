@@ -33,10 +33,9 @@ public class TestBase {
     @AfterEach
     void tearDown() {
         AllureAttachment.pageSource();
-        if ("browserstack".equals(System.getProperty("env", "browserstack"))) {
-            AllureAttachment.getVideoUrl();
+        if (System.getProperty("env", "browserstack").equals("browserstack")) {
+            AllureAttachment.addVideoFromBrowserstack();
         }
-
         closeWebDriver();
     }
 }
