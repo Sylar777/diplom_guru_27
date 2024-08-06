@@ -1,8 +1,8 @@
 package tests.api;
 
-import helpers.ResponseRestApi;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.*;
 
 import static helpers.ResponseRestApi.getErrorResponseForTitleAwards;
 import static helpers.ResponseRestApi.getTitleAwards;
@@ -10,8 +10,11 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Tag("API")
+@Owner("Daniil Sosnovskiy")
+@Feature("Title Awards")
 public class TitleAwardsTest extends TestBase {
     @Test
+    @DisplayName("Check that title awards not empty")
     void checkThatTitleAwardsNotEmptyTest() {
         var response = step("Request title awards via API", () -> {
             return getTitleAwards(1, 3, true);
@@ -25,6 +28,7 @@ public class TitleAwardsTest extends TestBase {
     }
 
     @Test
+    @DisplayName("Check error message for empty winning parameter")
     void checkErrorMessageForEmptyWinningParameterTest() {
         var response = step("Request title awards with empty winning parameter via API", () -> {
             return getErrorResponseForTitleAwards(1, 3);

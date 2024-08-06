@@ -25,6 +25,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.kinopoisk.ru");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
@@ -39,11 +40,6 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-    }
-
-    @BeforeEach
-    void setUp() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach

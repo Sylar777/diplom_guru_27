@@ -1,8 +1,9 @@
 package tests.mobile;
 
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
@@ -11,8 +12,11 @@ import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
 @Tag("Mobile")
+@Owner("Daniil Sosnovskiy")
+@Feature("Media Tab")
 public class MediaTabTest extends TestBase {
     @Test
+    @DisplayName("Check that in cinema carousel is loaded")
     void inCinemaLoadingTest() {
         step("Skip title pages", () -> {
             $(id("ru.kinopoisk:id/button_next")).click();
@@ -32,6 +36,7 @@ public class MediaTabTest extends TestBase {
     }
 
     @Test
+    @DisplayName("Check that schedule of premieres in carousel is loaded")
     void scheduleOfPremieresLoadingTest() {
         step("Skip title pages", () -> {
             $(id("ru.kinopoisk:id/button_next")).click();
