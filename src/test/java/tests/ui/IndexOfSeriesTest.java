@@ -49,4 +49,36 @@ public class IndexOfSeriesTest extends TestBase {
                 indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100))
         );
     }
+
+    @Test
+    @DisplayName("Check that production filter applying works")
+    void productionFilterApplyingTest() {
+        step("Explore production picklist and select production from suggested values", () -> {
+            indexOfSeriesPage.productionPicklist.click();
+            indexOfSeriesPage.productionPicklistValues.get(2).click();
+        });
+
+        step("Check that shown list of series not full", () ->
+                indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100))
+        );
+    }
+
+    @Test
+    @DisplayName("Check cross filtering by country and production")
+    void crossFilterApplyingTest() {
+        step("Explore countries picklist and select 'США' country from suggested values", () -> {
+            indexOfSeriesPage.countriesPicklist.click();
+            indexOfSeriesPage.countryUsa.click();
+        });
+
+        step("Explore production picklist and select 'A24' production from suggested values", () -> {
+            indexOfSeriesPage.productionPicklist.click();
+            indexOfSeriesPage.productionA24.click();
+        });
+
+        step("Check that shown list of series not empty and not full", () -> {
+            indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100));
+            indexOfSeriesPage.tableItems.shouldHave(sizeGreaterThan(0));
+        });
+    }
 }

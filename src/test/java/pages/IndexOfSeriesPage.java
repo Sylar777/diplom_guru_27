@@ -9,5 +9,9 @@ public class IndexOfSeriesPage {
     public final SelenideElement tableList = $("[class*='Table_list']:not([class*='Fake'])");
     public final ElementsCollection tableItems = tableList.$$("li");
     public final SelenideElement countriesPicklist = $x("//input[@placeholder='Страны']").parent();
+    public final SelenideElement productionPicklist = $x("//input[@placeholder='Производители']").parent();
     public final ElementsCollection countriesPicklistValues = countriesPicklist.sibling(0).$$("li");
+    public final ElementsCollection productionPicklistValues = productionPicklist.sibling(0).$$("li");
+    public final SelenideElement productionA24 = $("#A24").parent().parent();
+    public final SelenideElement countryUsa = $("#США").parent().parent();
 }
