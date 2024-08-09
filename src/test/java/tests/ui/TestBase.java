@@ -13,9 +13,9 @@ import java.util.Map;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
-    public MainPage mainPage;
-    public TopNavigatorPage topNavigatorPage;
-    public IndexOfSeriesPage indexOfSeriesPage;
+    public final MainPage mainPage;
+    public final TopNavigatorPage topNavigatorPage;
+    public final IndexOfSeriesPage indexOfSeriesPage;
 
     public TestBase() {
         mainPage = new MainPage();

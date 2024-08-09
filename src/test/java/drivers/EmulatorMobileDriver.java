@@ -16,7 +16,7 @@ import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class EmulateMobileDriver implements WebDriverProvider {
+public class EmulatorMobileDriver implements WebDriverProvider {
     private static final EmulateMobileConfig emulateMobileConfig =
             ConfigFactory.create(
                     EmulateMobileConfig.class,

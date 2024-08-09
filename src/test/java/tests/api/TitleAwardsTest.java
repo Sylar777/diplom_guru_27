@@ -14,7 +14,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 @Feature("Title Awards")
 public class TitleAwardsTest extends TestBase {
     @Test
-    @DisplayName("Check that title awards not empty")
+    @DisplayName("Check that title awards is not empty")
     void checkThatTitleAwardsNotEmptyTest() {
         var response = step("Request title awards via API", () -> {
             return getTitleAwards(1, 3, true);

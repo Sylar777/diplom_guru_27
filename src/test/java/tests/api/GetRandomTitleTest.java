@@ -17,11 +17,11 @@ public class GetRandomTitleTest extends TestBase {
     private final String anime = "anime";
 
     @Test
-    @DisplayName("Check that response not empty")
+    @DisplayName("Check that response is not empty")
     void checkThatGetRandomTitleResponseNotEmpty() {
         var response = step("Request random title via API", ResponseRestApi::getRandomTitle);
 
-        step("Check that response not empty", () -> {
+        step("Check that response is not empty", () -> {
             assertThat(response.getId())
                     .as("Title's Id")
                     .isNotNull();

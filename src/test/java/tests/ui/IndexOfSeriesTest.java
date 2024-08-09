@@ -76,7 +76,7 @@ public class IndexOfSeriesTest extends TestBase {
             indexOfSeriesPage.productionA24.click();
         });
 
-        step("Check that shown list of series not empty and not full", () -> {
+        step("Check that shown list of series is not empty and not full", () -> {
             indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100));
             indexOfSeriesPage.tableItems.shouldHave(sizeGreaterThan(0));
         });
