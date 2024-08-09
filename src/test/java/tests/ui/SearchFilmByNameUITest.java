@@ -28,12 +28,12 @@ public class SearchFilmByNameUITest extends TestBase {
     @DisplayName("Check that searching by name in different languages return the same item")
     void searchArticleInDifferentLanguagesTest(String filmName) {
         step("Search article " + "'" + filmName + "'", () -> {
-            mainPage.searchInput.setValue(filmName);
-            mainPage.suggestedArticlesList.shouldHave(sizeGreaterThan(0));
+            mainPage.getSearchInput().setValue(filmName);
+            mainPage.getSuggestedArticlesList().shouldHave(sizeGreaterThan(0));
         });
 
         step("Check that the first article is " + "'" + filmNameInRussian + "'", () -> {
-            assertThat(mainPage.getArticleTitle(mainPage.suggestedArticlesList.first()))
+            assertThat(mainPage.getArticleTitle(mainPage.getSuggestedArticlesList().first()))
                     .isEqualToIgnoringCase(filmNameInRussian);
         });
     }

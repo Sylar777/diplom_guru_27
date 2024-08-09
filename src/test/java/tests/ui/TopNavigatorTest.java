@@ -24,12 +24,12 @@ public class TopNavigatorTest extends TestBase {
     @DisplayName("Check that top navigator page is opened")
     void picklistValidationTest() {
         step("Select budget min = " + minBudget + " and budget max = " + maxBudget, () -> {
-            topNavigatorPage.budgetMinPicklist.selectOption(minBudget);
-            topNavigatorPage.budgetMaxPicklist.selectOption(maxBudget);
+            topNavigatorPage.selectMinBudgetValue(minBudget);
+            topNavigatorPage.selectMaxBudgetValue(maxBudget);
         });
 
         step("Check that pop-up with error message is visible", () -> {
-            topNavigatorPage.popUpText.shouldBe(visible);
+            topNavigatorPage.getPopUpText().shouldBe(visible);
         });
     }
 }

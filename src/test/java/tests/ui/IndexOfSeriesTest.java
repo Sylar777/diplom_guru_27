@@ -21,19 +21,17 @@ public class IndexOfSeriesTest extends TestBase {
     @DisplayName("Check that all top of series shown on the page")
     void checkTopSeriesSizeTest() {
         step("Check that all top of series shown on the page", () ->
-                indexOfSeriesPage.tableItems.shouldHave(size(100))
+                indexOfSeriesPage.getTableItems().shouldHave(size(100))
         );
     }
 
     @Test
     @DisplayName("Check that countries picklist is not empty")
     void countriesPicklistNotEmptyTest() {
-        step("Explore countries picklist", () ->
-                indexOfSeriesPage.countriesPicklist.click()
-        );
+        step("Explore countries picklist", indexOfSeriesPage::clickCountryPicklist);
 
         step("Check that countries picklist is not empty", () ->
-                indexOfSeriesPage.countriesPicklistValues.shouldHave(sizeGreaterThan(0))
+                indexOfSeriesPage.getCountriesPicklistValues().shouldHave(sizeGreaterThan(0))
         );
     }
 
@@ -41,12 +39,12 @@ public class IndexOfSeriesTest extends TestBase {
     @DisplayName("Check that country filter applying works")
     void countryFilterApplyingTest() {
         step("Explore countries picklist and select country from suggested values", () -> {
-            indexOfSeriesPage.countriesPicklist.click();
-            indexOfSeriesPage.countriesPicklistValues.get(2).click();
+            indexOfSeriesPage.clickCountryPicklist();
+            indexOfSeriesPage.getCountriesPicklistValues().get(2).click();
         });
 
         step("Check that shown list of series not full", () ->
-                indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100))
+                indexOfSeriesPage.getTableItems().shouldHave(sizeLessThan(100))
         );
     }
 
@@ -54,12 +52,12 @@ public class IndexOfSeriesTest extends TestBase {
     @DisplayName("Check that production filter applying works")
     void productionFilterApplyingTest() {
         step("Explore production picklist and select production from suggested values", () -> {
-            indexOfSeriesPage.productionPicklist.click();
-            indexOfSeriesPage.productionPicklistValues.get(2).click();
+            indexOfSeriesPage.clickProductionPicklist();
+            indexOfSeriesPage.getProductionPicklistValues().get(2).click();
         });
 
         step("Check that shown list of series not full", () ->
-                indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100))
+                indexOfSeriesPage.getTableItems().shouldHave(sizeLessThan(100))
         );
     }
 
@@ -67,18 +65,18 @@ public class IndexOfSeriesTest extends TestBase {
     @DisplayName("Check cross filtering by country and production")
     void crossFilterApplyingTest() {
         step("Explore countries picklist and select 'США' country from suggested values", () -> {
-            indexOfSeriesPage.countriesPicklist.click();
-            indexOfSeriesPage.countryUsa.click();
+            indexOfSeriesPage.clickCountryPicklist();
+            indexOfSeriesPage.clickCountryUsa();
         });
 
         step("Explore production picklist and select 'A24' production from suggested values", () -> {
-            indexOfSeriesPage.productionPicklist.click();
-            indexOfSeriesPage.productionA24.click();
+            indexOfSeriesPage.clickProductionPicklist();
+            indexOfSeriesPage.clickProductionA24();
         });
 
         step("Check that shown list of series is not empty and not full", () -> {
-            indexOfSeriesPage.tableItems.shouldHave(sizeLessThan(100));
-            indexOfSeriesPage.tableItems.shouldHave(sizeGreaterThan(0));
+            indexOfSeriesPage.getTableItems().shouldHave(sizeLessThan(100));
+            indexOfSeriesPage.getTableItems().shouldHave(sizeGreaterThan(0));
         });
     }
 }
