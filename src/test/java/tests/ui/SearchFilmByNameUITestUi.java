@@ -14,7 +14,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Tag("UI")
 @Owner("Daniil Sosnovskiy")
 @Feature("Search")
-public class SearchFilmByNameUITest extends TestBase {
+public class SearchFilmByNameUITestUi extends TestBaseUi {
     public final static String filmNameInRussian = "Герои";
     public final static String filmNameInEnglish = "Heroes";
 

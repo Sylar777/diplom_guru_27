@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("UI")
 @Owner("Daniil Sosnovskiy")
 @Feature("Index of Series")
-public class IndexOfSeriesTest extends TestBase {
+public class IndexOfSeriesTestUi extends TestBaseUi {
     @BeforeEach
     void setUp() {
         open("/special/index/");

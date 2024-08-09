@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("Mobile")
 @Owner("Daniil Sosnovskiy")
 @Feature("Media Tab")
-public class MediaTabTest extends TestBase {
+public class MediaTabTestMobile extends TestBaseMobile {
     @Test
     @DisplayName("Check that in cinema carousel is loaded")
     void inCinemaLoadingTest() {

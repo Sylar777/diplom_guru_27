@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static helpers.ResponseRestApi.getTitleByNameViaApi;
+import static steps.ResponseRestApiSteps.getTitleByNameViaApi;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @Tag("API")
 @Owner("Daniil Sosnovskiy")
 @Feature("Search")
-public class SearchTitleByNameApiTest extends TestBase {
+public class SearchTitleByNameApiTestApi extends TestBaseApi {
     private final static int filmId = 271748;
 
     @ParameterizedTest(name = "Check searching with page={0}, limit={1}, and filmName={2}")

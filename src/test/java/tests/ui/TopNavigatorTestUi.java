@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("UI")
 @Owner("Daniil Sosnovskiy")
 @Feature("Top Navigator")
-public class TopNavigatorTest extends TestBase {
+public class TopNavigatorTestUi extends TestBaseUi {
     private final String minBudget = "250";
     private final String maxBudget = "50";
 

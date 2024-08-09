@@ -12,12 +12,12 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class TestBase {
+public class TestBaseUi {
     public final MainPage mainPage;
     public final TopNavigatorPage topNavigatorPage;
     public final IndexOfSeriesPage indexOfSeriesPage;
 
-    public TestBase() {
+    public TestBaseUi() {
         mainPage = new MainPage();
         topNavigatorPage = new TopNavigatorPage();
         indexOfSeriesPage = new IndexOfSeriesPage();

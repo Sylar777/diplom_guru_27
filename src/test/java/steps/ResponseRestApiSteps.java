@@ -1,20 +1,19 @@
-package helpers;
+package steps;
 
 import io.qameta.allure.Step;
-import io.restassured.http.ContentType;
 import models.*;
 
 import static io.restassured.RestAssured.given;
 import static spec.GeneralSpec.defaultLoggingRequestSpec;
 import static spec.GeneralSpec.defaultLoggingКesponseSpec;
 
-public class ResponseRestApi {
+public class ResponseRestApiSteps {
     @Step("Get Title by name via API")
     public static GetTitleResponse getTitleByNameViaApi(String page, String limit, String filmName) {
         return given()
                 .spec(defaultLoggingRequestSpec)
                 .header("accept", "application/json")
-                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .header("X-API-KEY", System.getProperty("apikey"))
                 .get("/movie/search?page={page}&limit={limit}&query={query}", page, limit, filmName)
                 .then()
                 .spec(defaultLoggingКesponseSpec)
@@ -27,7 +26,7 @@ public class ResponseRestApi {
         return given()
                 .spec(defaultLoggingRequestSpec)
                 .header("accept", "application/json")
-                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .header("X-API-KEY", System.getProperty("apikey"))
                 .get("/movie/random")
                 .then()
                 .spec(defaultLoggingКesponseSpec)
@@ -40,7 +39,7 @@ public class ResponseRestApi {
         return given()
                 .spec(defaultLoggingRequestSpec)
                 .header("accept", "application/json")
-                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .header("X-API-KEY", System.getProperty("apikey"))
                 .get("/movie/random?type={type}", type)
                 .then()
                 .spec(defaultLoggingКesponseSpec)
@@ -53,7 +52,7 @@ public class ResponseRestApi {
         return given()
                 .spec(defaultLoggingRequestSpec)
                 .header("accept", "application/json")
-                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .header("X-API-KEY", System.getProperty("apikey"))
                 .get("/movie/awards?page={page}&limit={limit}&winning=", page, limit)
                 .then()
                 .spec(defaultLoggingКesponseSpec)
@@ -66,7 +65,7 @@ public class ResponseRestApi {
         return given()
                 .spec(defaultLoggingRequestSpec)
                 .header("accept", "application/json")
-                .header("X-API-KEY", System.getProperty("apikey", "0RNAGBE-2BEM2CC-PB1RM4V-T5C4GV4"))
+                .header("X-API-KEY", System.getProperty("apikey"))
                 .get("/movie/awards?page={page}&limit={limit}&winning={winning}", page, limit, isWinning)
                 .then()
                 .spec(defaultLoggingКesponseSpec)

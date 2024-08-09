@@ -17,7 +17,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("Mobile")
 @Owner("Daniil Sosnovskiy")
 @Feature("Search")
-public class SearchFilmByNameMobileTest extends TestBase {
+public class SearchFilmByNameMobileTestMobile extends TestBaseMobile {
     public final static String filmNameInRussian = "Герои";
     public final static String filmNameInEnglish = "Heroes";
 
