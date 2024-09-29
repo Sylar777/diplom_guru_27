@@ -16,6 +16,7 @@ Kinopoisk - это крупнейший российский интернет-с
 - [Интеграция с Jira](#интеграция-с-jira)
 - [Видео примера запуска тестов в Selenoid](#Видео-примера-запуска-тестов-в-Selenoid)
 - [Видео примера запуска тестов в BrowserStack](#Видео-примера-запуска-тестов-в-BrowserStack)
+- [Allure уведомление в Телеграм](#Allure-уведомление-в-Телеграм)
 
 ## Описание
 Проект по автоматизации тестирования Kinopoisk нацелен на демонстрацию возможностей автоматизации одного сервиса с различных сторон, включая UI, API и Mobile. 
@@ -189,5 +190,12 @@ CATEGORIES - отображает распределение неудачных 
 <p dir="auto">
   <a href="images/screenshots/Jira.png">
     <img src="images/video/mobile.gif" style="max-width: 100%;">
+  </a>
+</p>
+
+## Allure уведомление в Телеграм
+<p dir="auto">
+  <a href="images/screenshots/TelegramNotification.png">
+    <img src="images/screenshots/TelegramNotification.png" width="450">
   </a>
 </p>
